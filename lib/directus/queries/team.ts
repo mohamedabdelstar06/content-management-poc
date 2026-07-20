@@ -12,5 +12,5 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
       sort: ['name'],
     })
   );
-  return result as TeamMember[];
+  return Array.isArray(result) ? result as TeamMember[] : [];
 }

@@ -14,7 +14,7 @@ export async function getUpcomingEvents(limit: number = 5): Promise<Event[]> {
       limit,
     })
   );
-  return result as Event[];
+  return Array.isArray(result) ? result as Event[] : [];
 }
 
 export async function getAllEvents(): Promise<Event[]> {
@@ -26,7 +26,7 @@ export async function getAllEvents(): Promise<Event[]> {
       sort: ['-event_date'],
     })
   );
-  return result as Event[];
+  return Array.isArray(result) ? result as Event[] : [];
 }
 
 

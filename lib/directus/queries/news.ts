@@ -13,7 +13,7 @@ export async function getLatestNews(limit: number = 5): Promise<News[]> {
       limit,
     })
   );
-  return result as News[];
+  return Array.isArray(result) ? result as News[] : [];
 }
 
 
