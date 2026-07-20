@@ -8,6 +8,7 @@ export const revalidate = 60;
 
 export async function generateStaticParams() {
   const events = await getAllEvents().catch(() => []);
+  if (!Array.isArray(events)) return [];
   return events.map((item) => ({
     slug: item.slug,
   }));
